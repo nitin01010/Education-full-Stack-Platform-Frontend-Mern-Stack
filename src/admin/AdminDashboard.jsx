@@ -14,6 +14,7 @@ function AdminDashboard() {
             </div>
             <div className=" w-[90%] bg-[#f2f2f2] p-4 text-black m-auto h-screen">
                 {activeTab == 'AllCourses' ? <AllCourses /> : <AddCourses />}
+                this is i am chaning 
             </div>
         </div>
     )
