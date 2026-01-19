@@ -9,17 +9,19 @@ import AdminDashboard from "./admin/AdminDashboard";
 import Page404 from "./Pages/404";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { useState } from "react";
 
 function App() {
+  const [showModal, setShowModal] = useState(false);
   return (
     <div>
       <ScrollToTop />
-      <Header />
+      <Header showModal={showModal} setShowModal={setShowModal} />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/courses" element={<NewCourses />} />
-        <Route path="/new-courses/:title" element={<CoursesDetails />} />
-        <Route path="/admin/dashboard/" element={<AdminDashboard />} /> {/* Private Page */}
+        <Route path="/new-courses/:title" element={<CoursesDetails showModal={showModal} setShowModal={setShowModal} />} />
+        <Route path="/admin/dashboard/" element={<AdminDashboard />} />
         <Route path="*" element={<Page404 />} />
       </Routes>
       <Footer />
